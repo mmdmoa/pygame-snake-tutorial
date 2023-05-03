@@ -1,13 +1,24 @@
-in this step we are going to complete our `EventHolder` class.
+In this step, we will complete the implementation of our `EventHolder` class. 
+Its primary objective is to retrieve events using the `pg.event.get` method 
+and convert them into a more easily processable format.
 
-it's essential purpose is to fetch the events using `pg.event.get` and convert them
-to a more digestible format.
+By doing so, we can simplify the process of event handling 
+and make it more straightforward for us to manage events across our entire project. 
+The `EventHolder` class will play a crucial role in our codebase, 
+allowing us to easily manage and process events in a well-organized manner.
 
 # changes at core/event_holder
 
-here we add four attributes to our `EventHolder` class.
-I made multiple lists that are going to contain any keys that are in pressed, released or held states.
-also , `should_quit` attribute is responsible to determine if the quit button was pressed.
+In this step, we are adding four attributes to our `EventHolder` class. These attributes are:
+
+* `pressed_keys`: A list containing all keys that are currently in the pressed state.
+* `released_keys`: A list containing all keys that were released in the last frame.
+* `held_keys`: A list containing all keys that are currently in the held state.
++ `should_quit`: A boolean attribute responsible for determining whether the quit button was pressed.
+
+By using these attributes, we can keep track of the state 
+of various keys and events in a well-organized manner, 
+thereby simplifying our code and making it more maintainable.
 
 ```python
 def __init__( self ) :
@@ -17,11 +28,15 @@ def __init__( self ) :
     self.should_quit = False
 ```
 
-here we simply fetch every key event and add them to their respective lists.
+In this step, we are fetching every key event using 
+`pg.event.get()` and adding them to their respective lists 
+(`pressed_keys`, `released_keys`, and `held_keys`).
 
-keep in note that checking if a key value is inside `held_keys` before trying
-to remove it is important, as sometimes there can be exceptions duo to unexpected behaviours of
-the operating system.
+It is important to note that we check whether a key value is present 
+in `held_keys` before trying to remove it. This is crucial as unexpected behaviors 
+from the operating system can sometimes cause exceptions to be raised. 
+By performing this check, 
+we can avoid such exceptions and ensure that our code remains stable and reliable.
 
 ```python
 def get_events( self ) :
@@ -44,12 +59,14 @@ def get_events( self ) :
 
 
 # changes at main
-now that our `EventHolder` class is complete, all left to do is to create
-an instance of it and run `EventHolder.get_events` in every iteration of the main loop!
+With the completion of our `EventHolder` class, all that remains to be done is 
+to create an instance of it and call its `get_events` method in every iteration of the main loop.
 
-a bonus feature of making a class that fetches the events, is that we can simply create it like
-we did the screen in `core.common.resources`,
-and then have access to the events from any class, anywhere!
+One of the benefits of creating a class that fetches events is that 
+we can easily create an instance of it and then access the events from any class, 
+anywhere. We can store this instance in `core.common.resources`, just like we did with the screen, 
+and then access it whenever we need to retrieve events. This approach 
+makes our code more modular and flexible, allowing us to handle events more efficiently and effectively.
 
 ```python
 cr.event_holder = EventHolder()
