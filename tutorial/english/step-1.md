@@ -1,12 +1,14 @@
-
-in this step we achieve basic functionality for our screen, and are preparing our 
-structures for the next steps
+In this step, we will achieve basic functionality for our screen 
+and prepare our structures for the next steps.
 
 ## changes at core/commons/names
 
-this class imports every name that I'm sure of I'm going to need in most of my 
-classes. by just importing everything from `core.common.names` I will have access
-to all of those names, it's a fast and clean method to import things.
+This class enables us to import all the necessary names 
+that we are likely to require in most of our classes. 
+By utilizing the `core.common.names` module and importing everything, 
+we can easily access all the required names in a fast and efficient manner. 
+
+This streamlined approach to importing allows us to maintain a clean and organized codebase.
 
 ```python
 # Optional helps the linters, it's not a necessary component for our project
@@ -20,29 +22,32 @@ from pygame import Vector2,FRect,Surface,Color
 
 ## changes at core/commons/resources
 
-screen is the main window that is created by pygame through `pg.display.set_mode` command.
-by storing it in `core.common.resources` it's possible to access it from any class, anywhere.
-( unless it causes a circular import )
+The screen is the primary window that Pygame creates using the `pg.display.set_mode` command. 
+By storing it in `core.common.resources`, we can access it from any class, anywhere within our project, 
+except in cases where circular imports occur.
 
-EventHolder is helps to store every event in a proper format, and easily 
-manage them.
+The `EventHolder` class is designed to store every event in a well-formatted manner 
+and manage them with ease, 
+thereby simplifying event handling across our project.
 
 ```python
 from core.common.names import *
 from core.event_holder import EventHolder
 
 """
-by doing `Optional[type]` the linters will always assume 
-the value of the variable is the same as the specified type in `Optional`.
-so it helps to fix the behaviour of linters while initializing a variable with `None`.
-again, this is not necessary
+By defining a variable as Optional[type], we can inform linters 
+that the value of the variable can either be of the specified type or None. 
+This helps to avoid issues that may arise from initializing a variable with None and makes 
+it easier for linters to correctly identify the type of the variable. 
+It is important to note that while this step is not necessary, 
+it can help ensure the correctness of our code and make it more robust.
 """
 screen: Optional[Surface] = None
 event_holder: Optional[EventHolder] = None
 ```
 
 ## changes at core/event_holder
-for now, I'm just creating an empty class names `EventHolder` so our import
+For now, I'm just creating an empty class names `EventHolder` so our import
 doesn't fail in `core.common.resources`
 
 ```python
@@ -55,16 +60,18 @@ class EventHolder :
 ```
 ## changes at core/main.py
 
-this code is like any pygame code. the only difference is the import system.
-instead of directly importing what I precisely need, I import everything that I'm most likely
-to need in the current file.
+The codebase follows the standard structure for Pygame projects. 
+The primary difference lies in the import system. 
+Rather than importing specific modules, 
+we import everything we are likely to need in the current file, through the `core.common.names` module.
 
-also instead of assigning the window to a variable in `main`, I assign it to
-a variable in `core.common.resources`, so I can have access to it from anywhere!
+Furthermore, we store the window in the `core.common.resources` module rather than in main. 
+This enables us to access the window from anywhere within our project.
 
-I didn't add anything to `EventHolder` class, so I obviously can't use it. in the next step
-we'll actually make `EventHolder`, and replace its functionalities with anything commented
-as temporary in this code.
+At present, the `EventHolder` class is empty and has no functionality. Hence, 
+it is not being used. However, in the upcoming step,
+we will create and implement the `EventHolder` class, 
+and replace any temporary code with its functionalities.
 
 ```python
 
