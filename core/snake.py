@@ -21,5 +21,42 @@ class Snake:
         self.color = Color("red").lerp("black",0.5)
         self.direction: SnakeDirection = SnakeDirection.right
 
+    def has_eaten_food( self ):
+        return False
+
+    def move( self ):
+        grid_size = cr.game.grid_system.grid_size
+        head = self.body[-1]
+        movement = Vector2(0,0)
+
+        if self.direction == SnakeDirection.up:
+            movement.y -= 1
+        elif self.direction == SnakeDirection.down:
+            movement.y += 1
+        elif self.direction == SnakeDirection.right:
+            movement.x += 1
+        elif self.direction == SnakeDirection.left:
+            movement.x -= 1
+
+        new_head = Vector2(head.x+movement.x,head.y+movement.y)
+
+        if new_head.x <= 0:
+            new_head.x = grid_size.x -1
+        if new_head.y <= 0:
+            new_head.y = grid_size.y -1
+
+        if new_head.x > grid_size.x -1:
+            new_head.x = 0
+        if new_head.y > grid_size.y -1:
+            new_head.y = 0
+
+        self.body.append(new_head)
+
+        if not self.has_eaten_food():
+            self.body.pop(0)
+
+
+
     def check_events( self ):
+        self.move()
         cr.game.grid_system.cell_list.append(self.colored_body())

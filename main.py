@@ -10,7 +10,7 @@ cr.event_holder = EventHolder()
 cr.game = Game()
 cr.game.start()
 
-fps = 60
+fps = 30
 clock = pg.time.Clock()
 
 while not cr.event_holder.should_quit:
