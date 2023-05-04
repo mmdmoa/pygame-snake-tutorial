@@ -8,6 +8,7 @@ pg.init()
 cr.screen = pg.display.set_mode([900,740])
 cr.event_holder = EventHolder()
 cr.game = Game()
+cr.game.start()
 
 while not cr.event_holder.should_quit:
 
