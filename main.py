@@ -10,6 +10,9 @@ cr.event_holder = EventHolder()
 cr.game = Game()
 cr.game.start()
 
+fps = 60
+clock = pg.time.Clock()
+
 while not cr.event_holder.should_quit:
 
     if K_ESCAPE in cr.event_holder.released_keys:
@@ -20,3 +23,5 @@ while not cr.event_holder.should_quit:
     cr.game.check_events()
     cr.game.render()
     pg.display.update()
+
+    clock.tick(fps)
