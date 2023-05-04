@@ -40,14 +40,14 @@ class Snake:
 
         new_head = Vector2(head.x+movement.x,head.y+movement.y)
 
-        if new_head.x <= 0:
+        if new_head.x < 0:
             new_head.x = grid_size.x -1
-        if new_head.y <= 0:
+        if new_head.y < 0:
             new_head.y = grid_size.y -1
 
-        if new_head.x > grid_size.x -1:
+        if new_head.x > grid_size.x - 1:
             new_head.x = 0
-        if new_head.y > grid_size.y -1:
+        if new_head.y > grid_size.y - 1:
             new_head.y = 0
 
         self.body.append(new_head)
@@ -58,5 +58,14 @@ class Snake:
 
 
     def check_events( self ):
+        if K_UP in cr.event_holder.pressed_keys:
+            self.direction = SnakeDirection.up
+        if K_DOWN in cr.event_holder.pressed_keys:
+            self.direction = SnakeDirection.down
+        if K_RIGHT in cr.event_holder.pressed_keys:
+            self.direction = SnakeDirection.right
+        if K_LEFT in cr.event_holder.pressed_keys:
+            self.direction = SnakeDirection.left
+
         self.move()
         cr.game.grid_system.cell_list.append(self.colored_body())
