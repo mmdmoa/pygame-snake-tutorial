@@ -10,7 +10,7 @@ class Game:
         self.rect.y += self.rect.h * 0.1
         self.rect.h = self.rect.h * 0.9
         self.grid_system = GridSystem(self.rect,Vector2(12*2,10*2))
-        self.snake = Snake()
+        self.snake = Snake(10)
 
     def start( self ):
         self.snake.start()
@@ -23,4 +23,5 @@ class Game:
         cr.screen.fill("gray")
         pg.draw.rect(cr.screen,Color("white").lerp("blue",0.28),self.rect)
 
+        self.snake.render()
         self.grid_system.render()

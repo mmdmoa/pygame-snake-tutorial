@@ -3,10 +3,12 @@ from core.common.enums import *
 import core.common.resources as cr
 
 class Snake:
-    def __init__(self):
+    def __init__(self,tempo:int):
         self.body: Optional[list[Vector2]] = None
         self.color: Optional[Color] = None
         self.direction: Optional[SnakeDirection] = None
+        self.tempo_counter = 0
+        self.tempo = tempo
 
     def start( self ):
         self.reset()
@@ -56,16 +58,20 @@ class Snake:
             self.body.pop(0)
 
 
+    def render( self ):
+        cr.game.grid_system.cell_list.append(self.colored_body())
 
     def check_events( self ):
-        if K_UP in cr.event_holder.pressed_keys:
+        if K_UP in cr.event_holder.pressed_keys :
             self.direction = SnakeDirection.up
-        if K_DOWN in cr.event_holder.pressed_keys:
+        if K_DOWN in cr.event_holder.pressed_keys :
             self.direction = SnakeDirection.down
-        if K_RIGHT in cr.event_holder.pressed_keys:
+        if K_RIGHT in cr.event_holder.pressed_keys :
             self.direction = SnakeDirection.right
-        if K_LEFT in cr.event_holder.pressed_keys:
+        if K_LEFT in cr.event_holder.pressed_keys :
             self.direction = SnakeDirection.left
 
-        self.move()
-        cr.game.grid_system.cell_list.append(self.colored_body())
+        self.tempo_counter += 1
+        if self.tempo == self.tempo_counter:
+            self.tempo_counter = 0
+            self.move()
