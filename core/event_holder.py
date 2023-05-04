@@ -6,6 +6,7 @@ class EventHolder :
         self.released_keys = []
         self.held_keys = []
         self.should_quit = False
+        self.should_render_debug = False
 
     def get_events( self ):
         self.pressed_keys.clear()

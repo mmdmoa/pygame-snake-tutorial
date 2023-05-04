@@ -5,7 +5,8 @@ import core.common.resources as cr
 class Snake:
     def __init__(self,tempo:int):
         self.body: Optional[list[Vector2]] = None
-        self.color: Optional[Color] = None
+        self.body_color: Optional[Color] = None
+        self.head_color: Optional[Color] = None
         self.direction: Optional[SnakeDirection] = None
         self.tempo_counter = 0
         self.tempo = tempo
@@ -14,13 +15,15 @@ class Snake:
         self.reset()
 
     def colored_body( self ):
-        return [(i,self.color) for i in self.body]
+        return [(i,self.body_color) for i in self.body[:-1]] + \
+               [(self.body[-1], self.head_color)]
 
     def reset( self ):
         gp = cr.game.grid_system.grid_size
         x,y = gp.x // 2, gp.y // 2
         self.body = [Vector2(x+i,y) for i in [-3,-2,-1,0]]
-        self.color = Color("red").lerp("black",0.5)
+        self.body_color = Color("red").lerp("black",0.5)
+        self.head_color = Color("red").lerp("black",0.65)
         self.direction: SnakeDirection = SnakeDirection.right
 
     def has_eaten_food( self ):

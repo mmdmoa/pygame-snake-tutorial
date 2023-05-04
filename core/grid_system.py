@@ -20,9 +20,9 @@ class GridSystem:
                 y *= self.y_step
                 y += self.rect.y
 
-                pg.draw.rect(cr.screen,color,FRect(x,y,self.x_step,self.y_step))
+                pg.draw.rect(cr.screen,color,FRect(x,y,self.x_step+1,self.y_step+1))
 
-    def render( self ):
+    def render_debug( self ):
         for x in range(int(self.grid_size.x)):
             x *= self.x_step
             x += self.rect.x
@@ -32,5 +32,9 @@ class GridSystem:
             y *= self.y_step
             y += self.rect.y
             pg.draw.line(cr.screen,"black",(self.rect.x,y),(self.rect.x+self.rect.w,y))
+
+    def render( self ):
+        if cr.event_holder.should_render_debug:
+            self.render_debug()
 
         self.render_cells()

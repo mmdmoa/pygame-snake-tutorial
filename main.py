@@ -18,6 +18,9 @@ while not cr.event_holder.should_quit:
     if K_ESCAPE in cr.event_holder.released_keys:
         cr.event_holder.should_quit = True
 
+    if K_F3 in cr.event_holder.pressed_keys:
+        cr.event_holder.should_render_debug = not cr.event_holder.should_render_debug
+
     cr.event_holder.get_events()
 
     cr.game.check_events()

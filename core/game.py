@@ -9,7 +9,7 @@ class Game:
         self.rect = FRect(cr.screen.get_rect())
         self.rect.y += self.rect.h * 0.1
         self.rect.h = self.rect.h * 0.9
-        self.grid_system = GridSystem(self.rect,Vector2(12*2,10*2))
+        self.grid_system = GridSystem(self.rect,Vector2(12*4,10*4))
         self.snake = Snake(10)
 
     def start( self ):
