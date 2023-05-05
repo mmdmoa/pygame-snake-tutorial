@@ -73,15 +73,29 @@ class Snake:
     def render( self ):
         cr.game.grid_system.cell_list.append(self.colored_body())
 
-    def check_events( self ):
-        if K_UP in cr.event_holder.pressed_keys :
+    def check_movements( self ):
+        head = self.body[-1]
+        neck = self.body[-2]
+        neck_direction = SnakeDirection.down
+
+        if head.x < neck.x :
+            neck_direction = SnakeDirection.right
+        elif head.x > neck.x :
+            neck_direction = SnakeDirection.left
+        elif head.y > neck.y :
+            neck_direction = SnakeDirection.up
+
+        if K_UP in cr.event_holder.pressed_keys and neck_direction != SnakeDirection.up :
             self.direction = SnakeDirection.up
-        if K_DOWN in cr.event_holder.pressed_keys :
+        if K_DOWN in cr.event_holder.pressed_keys and neck_direction != SnakeDirection.down :
             self.direction = SnakeDirection.down
-        if K_RIGHT in cr.event_holder.pressed_keys :
+        if K_RIGHT in cr.event_holder.pressed_keys and neck_direction != SnakeDirection.right :
             self.direction = SnakeDirection.right
-        if K_LEFT in cr.event_holder.pressed_keys :
+        if K_LEFT in cr.event_holder.pressed_keys and neck_direction != SnakeDirection.left :
             self.direction = SnakeDirection.left
+
+    def check_events( self ):
+        self.check_movements()
 
         self.tempo_counter += 1
         if self.tempo == self.tempo_counter:
