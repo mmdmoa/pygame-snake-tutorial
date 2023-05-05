@@ -27,6 +27,10 @@ class Game:
     def high_score_text( self ) :
         return cr.small_font.render(f"high score: {self.high_score}", False, "black")
 
+    def check_high_score( self ):
+        if self.score > self.high_score:
+            self.high_score = self.score
+
     def start( self ):
         self.snake.start()
         self.food.start()

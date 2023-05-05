@@ -64,9 +64,12 @@ class Snake:
         if not self.has_eaten_food():
             self.body.pop(0)
         else:
+            cr.game.score += 1
             cr.game.food.is_eaten = True
 
         if self.has_eaten_self():
+            cr.game.check_high_score()
+            cr.game.score = 0
             self.reset()
             cr.game.food.spawn()
 
