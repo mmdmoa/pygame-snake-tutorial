@@ -29,6 +29,8 @@ class Snake:
     def has_eaten_food( self ):
         return self.body[-1] == cr.game.food.pos
 
+    def has_eaten_self( self ):
+        return self.body[-1] in self.body[:-1]
 
 
     def move( self ):
@@ -64,6 +66,9 @@ class Snake:
         else:
             cr.game.food.is_eaten = True
 
+        if self.has_eaten_self():
+            self.reset()
+            cr.game.food.spawn()
 
     def render( self ):
         cr.game.grid_system.cell_list.append(self.colored_body())
