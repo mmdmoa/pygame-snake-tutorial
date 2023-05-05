@@ -27,7 +27,9 @@ class Snake:
         self.direction: SnakeDirection = SnakeDirection.right
 
     def has_eaten_food( self ):
-        return False
+        return self.body[-1] == cr.game.food.pos
+
+
 
     def move( self ):
         grid_size = cr.game.grid_system.grid_size
@@ -59,6 +61,8 @@ class Snake:
 
         if not self.has_eaten_food():
             self.body.pop(0)
+        else:
+            cr.game.food.is_eaten = True
 
 
     def render( self ):

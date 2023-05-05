@@ -1,3 +1,4 @@
+import random
 from typing import Optional
 
 import pygame as pg
