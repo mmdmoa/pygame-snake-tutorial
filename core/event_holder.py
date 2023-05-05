@@ -24,3 +24,4 @@ class EventHolder :
                 self.released_keys.append(i.key)
                 if i.key in self.held_keys:
                     self.held_keys.remove(i.key)
+

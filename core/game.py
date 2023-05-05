@@ -8,8 +8,11 @@ from core.food import Food
 class Game:
     def __init__( self ):
         self.rect = FRect(cr.screen.get_rect())
+        self.ui_rect = self.rect.copy()
         self.rect.y += self.rect.h * 0.1
         self.rect.h = self.rect.h * 0.9
+        self.ui_rect.h = self.ui_rect.h * 0.1
+
         self.grid_system = GridSystem(self.rect,Vector2(12*4,10*4))
         self.snake = Snake(10)
         self.food = Food()
