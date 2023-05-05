@@ -13,9 +13,19 @@ class Game:
         self.rect.h = self.rect.h * 0.9
         self.ui_rect.h = self.ui_rect.h * 0.1
 
+        self.score = 0
+        self.high_score = 0
         self.grid_system = GridSystem(self.rect,Vector2(12*4,10*4))
         self.snake = Snake(10)
         self.food = Food()
+
+    @property
+    def score_text( self ):
+        return cr.normal_font.render(f"score: {self.score}",False, "black")
+
+    @property
+    def high_score_text( self ) :
+        return cr.small_font.render(f"high score: {self.high_score}", False, "black")
 
     def start( self ):
         self.snake.start()
@@ -29,6 +39,20 @@ class Game:
     def render( self ):
         cr.screen.fill("gray")
         pg.draw.rect(cr.screen,Color("white").lerp("blue",0.28),self.rect)
+
+        score_text = self.score_text
+        score_rect = score_text.get_rect()
+        score_rect.center = self.ui_rect.center
+
+        cr.screen.blit(score_text,score_rect)
+
+        high_score_text = self.high_score_text
+        high_score_rect = high_score_text.get_rect()
+        high_score_rect.center = self.ui_rect.center
+        high_score_rect.x = self.ui_rect.w*0.99 - high_score_rect.w
+
+        cr.screen.blit(high_score_text, high_score_rect)
+
 
         self.snake.render()
         self.food.render()

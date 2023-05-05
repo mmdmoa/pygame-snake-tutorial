@@ -7,12 +7,15 @@ from core.game import Game
 pg.init()
 cr.screen = pg.display.set_mode([900,740])
 cr.event_holder = EventHolder()
+cr.small_font = pg.font.SysFont('monospace',25)
+cr.normal_font = pg.font.SysFont('monospace',35)
 cr.game = Game()
 cr.game.start()
-cr.fps_font = pg.font.SysFont('monospace',25)
+
+
 
 def get_fps_text():
-    return cr.fps_font.render(f"FPS: {round(final_fps)}",False, "black")
+    return cr.small_font.render(f"FPS: {round(final_fps)}",False, "black")
 
 fps = 120
 final_fps = 0
@@ -33,8 +36,10 @@ while not cr.event_holder.should_quit:
 
     fps_text = get_fps_text()
     fps_rect = fps_text.get_rect()
+    fps_rect.center = cr.game.ui_rect.center
     fps_rect.x = cr.game.ui_rect.x
-    fps_rect.y = cr.game.ui_rect.y
+    fps_rect.x += cr.game.ui_rect.w * 0.01
+
     cr.screen.blit(fps_text,fps_rect)
 
 
