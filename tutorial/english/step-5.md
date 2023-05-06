@@ -5,6 +5,26 @@ commit link https://github.com/mmdmoa/pygame-snake-tutorial/commit/a6247048b390d
 
 # changes at `core.grid_system`
 
+In order to customize the appearance of our grid, 
+we can create a method that fills specific cells in the table with determined colors. 
+This can be achieved by zipping the coordinates 
+of each cell with its corresponding color in a `tuple` format.
+
+To support the functionality of filling specific cells with predetermined colors, 
+we've added a new attribute to the `GridSystem` class called `cell_list`. 
+This attribute is a list that contains sub-lists of tuples, 
+with each `tuple` containing a `Vector2` and `Color`. These sub-lists represent the data 
+of each cell that needs to be filled and the color that it should be filled with.
+
+By utilizing this approach to render our game components, 
+we can avoid writing redundant code and achieve a more consistent way of rendering our 
+`Snake` and `Food` elements.
+
+By encapsulating the rendering logic within the `GridSystem` class, 
+we can easily integrate new game elements into our project without having 
+to write additional rendering code. 
+This results in a more efficient and organized codebase that is easier to maintain and update.
+
 ### changes at `__init__` method
 
 ```python
