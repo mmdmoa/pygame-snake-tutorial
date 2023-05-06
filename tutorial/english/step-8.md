@@ -4,6 +4,18 @@ commit link: https://github.com/mmdmoa/pygame-snake-tutorial/commit/8eae2f3f38d9
 
 
 # changes at `core.snake`
+
+In this step, we will implement the movement of our snake using the enums we created earlier.
+We can achieve this by checking the direction of the snake and calculating the new position
+relative to its current position. We add a new element to the snake's body as its new head,
+and remove the first element of its body if it has not eaten food.
+
+Additionally, we want to ensure that our snake can travel across the game board or, 
+alternatively, teleport to the other side if it tries to leave the board. 
+For example, if the snake is moving to the right edge of the board, 
+it should appear on the left edge of the board instead of leaving the game.
+
+
 ### new `has_eaten_food` method
 ```python
 def has_eaten_food( self ):
