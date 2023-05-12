@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ab99a58-dd85-4f6b-a0be-cd948221bdd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/steps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/common/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/common/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/common/names.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/common/names.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/common/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/common/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/food.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/food.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

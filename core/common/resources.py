@@ -1,2 +1,4 @@
+from core.common.names import *
 
-screen = None
+screen: Optional[Surface] = None
+

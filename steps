@@ -1,9 +1,9 @@
-# 1: intro .
-# 2: install .
-# 3: structures .
+# 0: intro .
+# 1: install .
+# 2: structures .
 
-# 4: pygame window .
-# 5: names .
-# 6: resources
-# 7: how to import
-# 8: type hinting
+# 3: pygame window .
+# 4: names .
+# 5: resources .
+# 6: how to import .
+# 7: type hinting .
