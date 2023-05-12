@@ -1,6 +1,7 @@
 from core.common.names import *
 import core.common.resources as cr
 from core.game import Game
+from core.event_holder import EventHolder
 
 
 # __main__
@@ -8,7 +9,7 @@ pg.init()
 
 # main object, main window
 cr.screen = pg.display.set_mode([800,640])
-
+cr.event_holder = EventHolder()
 # 1: type hinting
 # 2: linter
 # 3: typing library
@@ -16,14 +17,10 @@ cr.screen = pg.display.set_mode([800,640])
 # snake -> render -> screen
 game = Game()
 
-run = True
-
 # main loop , game loop
-while run:
+while cr.event_holder.run:
 
-    for i in pg.event.get():
-        if i.type == QUIT:
-            run = False
+    cr.event_holder.get_events()
 
     game.render()
     pg.display.update()
