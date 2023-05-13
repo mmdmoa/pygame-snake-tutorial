@@ -23,9 +23,13 @@ class EventHolder:
 
             if event.type == KEYDOWN:
                 self.pressed_keys.append(event.key)
+                self.held_keys.append(event.key)
+
 
             if event.type == KEYUP :
                 self.released_keys.append(event.key)
+                if event.key in self.held_keys:
+                    self.held_keys.remove(event.key)
 
 
 
