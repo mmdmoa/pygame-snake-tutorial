@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ab99a58-dd85-4f6b-a0be-cd948221bdd9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/common/names.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/common/names.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/common/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/common/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/event_holder.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/event_holder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
