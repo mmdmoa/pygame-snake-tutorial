@@ -1,6 +1,6 @@
 from core.common.names import *
 import core.common.resources as cr
-
+from core.grid_system import GridSystem
 
 class Game:
     def __init__(self):
@@ -16,6 +16,7 @@ class Game:
         self.ui_rect = cr.screen.get_rect()
         self.ui_rect.h = self.ui_rect.h * 0.1
 
+        self.grid_system = GridSystem(self.game_rect,Vector2(15,12))
 
 
     # get_events : event_holder
@@ -27,5 +28,7 @@ class Game:
 
 
     def render( self ):
+        cr.screen.fill("white")
         pg.draw.rect(cr.screen,self.game_color,self.game_rect)
         pg.draw.rect(cr.screen,self.ui_color,self.ui_rect)
+        self.grid_system.render()
